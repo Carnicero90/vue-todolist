@@ -5,23 +5,25 @@ var app = new Vue({
             str: 'spostare pezzi in più in cartella bonus',
             important: true
         },
-        {str: 'riordinare il codice',
-    important: true},
-            
-            
-            {
+        {
+            str: 'riordinare il codice',
+            important: true
+        },
+        {
             str: 'Fare il bucato',
             important: false
-        }, {
+        },
+        {
             str: 'Lavarsi i piedi',
             important: false,
         },
-        { str: 'Sfamare il coniglio',
-         important: true }],
-            message: '',
-            filter: '',
-            indexVisible: -1,
-            filteredTasks: []
+        {
+            str: 'Sfamare il coniglio',
+            important: true
+        }],
+        message: '',
+        filter: '',
+        indexVisible: -1,
     },
     methods: {
         removeTask(index) {

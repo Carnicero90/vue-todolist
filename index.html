@@ -41,12 +41,14 @@
                     v-bind:class="{ important: task.important}"><span>{{ task.str }}</span>
                     <div class="actions" @mouseleave="indexVisible = -1">
                         <i class="fas fa-exclamation-circle" @mouseover="indexVisible = index"
-                            @click="tasks[index].important = !tasks[index].important">
+                            @click="task.important = !task.important">
                             <div class="alert" v-show="indexVisible === index">
                                 <span v-if="!task.important">
                                     Segna task come importante
                                 </span>
-                                <span v-else>Non è poi così importante</span>
+                                <span v-else>
+                                    Non è poi così importante
+                                </span>
                             </div>
                         </i>
                         <i class="fas fa-times" @click="removeTask(index)"></i>
@@ -57,7 +59,7 @@
 
         </main>
         <!-- END MAIN -->
-        
+
     </div>
     <!-- END VUE CONTAINER -->
 

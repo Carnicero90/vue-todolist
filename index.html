@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="css/my_frame.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ToBool</title>
+</head>
+
+<body>
+    <!-- VUE CONTAINER -->
+    <div id="root">
+        <!-- HEADER -->
+        <header><img src="https://www.boolean.careers/images/misc/logo.png" alt="logo Boolean" class="logo"></header>
+        <!-- END HEADER -->
+
+        <!-- MAIN -->
+        <main class="flexer col center">
+            <div class="add-to-list text-center">
+                <input v-model="message" 
+                       type="text" 
+                       placeholder="Nuovo Todo"
+                       aria-label="Aggiungi"
+                       @keyup.enter="addTask(message)"
+                >
+                <button @click="addTask(message)">Aggiungi</button>
+            </div>
+            <div class="filter text-center">
+                <label for=""></label>
+                <input v-model="filter" type="text">
+                <i class="fas fa-search"></i>
+            </div>
+
+            <ul class="tasks-list">
+                <li class="flexer between center-cross"
+                v-for="(task, index) in filterTasks(filter)"
+                v-bind:class="{ important: task.important}"
+                ><span>{{ task.str }}</span> 
+                <div class="actions"
+                @mouseleave="indexVisible = -1">
+                    <i class="fas fa-exclamation-circle"
+                    @mouseover="indexVisible = index"
+                    @click="tasks[index].important = !tasks[index].important"
+                    ><div class="alert"
+                    v-show="indexVisible === index">
+                    <span v-if="!task.important">
+                        Segna task come importante
+                    </span>
+                    <span v-else>Non è poi così importante</span>
+                </div></i>
+                    <i class="fas fa-times"
+                    @click="removeTask(index)"
+                    ></i>
+                </div>
+               </li>
+
+            </ul>
+   
+        </main>
+        <!-- END MAIN -->
+
+        <!-- FOOTER -->
+        <!-- END FOOTER -->
+    </div>
+    <!-- END VUE CONTAINER -->
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

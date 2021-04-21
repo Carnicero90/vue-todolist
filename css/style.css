@@ -1,0 +1,93 @@
+/* COMMON
+   ======================= */
+.important {
+   background-color: orangered;
+   color: white;
+   font-weight: 900;
+}
+.important:hover {
+   background-color: red;
+}
+/* ======================= */
+
+/* HEADER
+   ======================= */
+
+/*    * stuff
+      -------------------- */
+.logo {
+   width: 300px;
+   margin: auto;
+   margin-top: 10vh;
+   padding-bottom: 5vh;
+}
+/*    -------------------- */
+
+/* ======================= */
+
+/* MAIN
+   ======================= */
+
+/*    * add-to-list
+      -------------------- */
+input, button {
+   padding: 5px;
+   border-radius: 10px;
+   border: 1px solid black;
+}
+/*    -------------------- */
+
+/*    * tasks-list
+      -------------------- */
+
+ul {
+   margin-top: 30px;
+   padding: 20px 10px;
+   background-color: #F5F7F7;
+   width: 50%;
+   margin: auto;
+   border-radius: 15px;
+}
+
+li {
+   padding: 10px;
+   border-bottom: 1px solid grey;
+}
+
+li:hover {
+   background-color: white;
+}
+.actions {
+   position: relative;
+}
+
+.alert {
+   position: absolute;
+   bottom: 100%;
+   background: white;
+   color: black;
+}
+
+/*    -------------------- */
+
+/* ======================= */
+
+/* FOOTER
+   ======================= */
+
+/*    * stuff
+      -------------------- */
+
+/*    -------------------- */
+
+/* ======================= */
+
+/* TEMPLATE
+   ======================= */
+
+/*    * stuff
+      -------------------- */
+
+/*    -------------------- */
+
+/* ======================= */

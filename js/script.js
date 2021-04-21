@@ -40,8 +40,24 @@ var app = new Vue({
         },
         filterTasks(filter) {
             return this.tasks.filter((item) => item.taskDescription.toLowerCase().includes(filter.toLowerCase()))
+        },
+        getRandomItem(array) {
+            // RETURN A RANDOM ITEM FROM array ( == ITERABLE)
+          return array[(Math.floor(Math.random() * array.length))]
         }
     },
+    created() {
+        // TEST: aggiunge tot task random
+        const verb = ["Sollecitare", "Fare", "Costruire", "Sollevare", "Rincorrere"];
+        const what = ["una scacchiera", "il bagnino", "cento forchette", "Giorgio Napolitano", "l'Ascoli"]
+        const how = ["graziosamente", "in camicia", "col trattore", "alla moicana", "ballando sopra le stelle"]
+       const randi = Array.from({length: 7}, () => {
+           return {taskDescription: `${this.getRandomItem(verb)} ${this.getRandomItem(what)} ${this.getRandomItem(how)}`,
+            isTaskImportant: false}});
+        this.tasks = [...this.tasks, ...randi]
+
+       
+    }
 
 })
 

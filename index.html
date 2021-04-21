@@ -39,7 +39,7 @@
             <!-- ul.tasks-lists -->
             <ul class="tasks-list">
                 <li class="flexer between center-cross" v-for="(task, index) in filterTasks(filter)"
-                    v-bind:class="{ important: task.isTaskImportant}"><span>{{ task.taskDescription }}</span>
+                    :class="{ important: task.isTaskImportant}"><span>{{ task.taskDescription }}</span>
                     <div class="actions flexer" @mouseleave="indexVisible = -1">
                         <div @mouseover="indexVisible = index">
                             <i class="fas fa-exclamation-circle" 

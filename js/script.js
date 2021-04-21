@@ -1,10 +1,7 @@
 var app = new Vue({
     el: '#root',
     data: {
-        tasks: [{
-            taskDescription: 'Spostare pezzi in più in cartella bonus',
-            isTaskImportant: true
-        },
+        tasks: [
         {
             taskDescription: 'Riordinare il codice',
             isTaskImportant: true
@@ -22,8 +19,6 @@ var app = new Vue({
             isTaskImportant: true
         }],
         message: '',
-        filter: '',
-        indexVisible: -1,
     },
     methods: {
         removeTask(index) {
@@ -32,31 +27,14 @@ var app = new Vue({
         addTask(message) {
             if (message) {
                 this.tasks.push({
-                    taskDescription: message[0].toUpperCase() + message.slice(1),
-                    isTaskImportant: false
+                    taskDescription: this.capitalizeWord(message),
                 });
                 this.message = ''
             }
         },
-        filterTasks(filter) {
-            return this.tasks.filter((item) => item.taskDescription.toLowerCase().includes(filter.toLowerCase()))
-        },
-        getRandomItem(array) {
-            // RETURN A RANDOM ITEM FROM array ( == ITERABLE)
-          return array[(Math.floor(Math.random() * array.length))]
+        capitalizeWord(word) {
+            return word[0].toUpperCase() + word.slice(1)
         }
-    },
-    created() {
-        // TEST: aggiunge tot task random
-        const verb = ["Sollecitare", "Fare", "Costruire", "Sollevare", "Rincorrere"];
-        const what = ["una scacchiera", "il bagnino", "cento forchette", "Giorgio Napolitano", "l'Ascoli"]
-        const how = ["graziosamente", "in camicia", "col trattore", "alla moicana", "ballando sopra le stelle"]
-       const randi = Array.from({length: 7}, () => {
-           return {taskDescription: `${this.getRandomItem(verb)} ${this.getRandomItem(what)} ${this.getRandomItem(how)}`,
-            isTaskImportant: false}});
-        this.tasks = [...this.tasks, ...randi]
-
-       
     }
 
 })

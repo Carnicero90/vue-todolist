@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -28,11 +28,31 @@
             </div>
             <!-- END div.add-to-list -->
 
+            <!-- div.filter -->
+            <div class="filter text-center">
+                <input v-model="filter" type="text" placeholder="Filtra task" aria-label="Filtra task"
+                    @keyup.esc="filter=''">
+                <i class="fas fa-search"></i>
+            </div>
+            <!-- END div.filter -->
+
             <!-- ul.tasks-lists -->
             <ul class="tasks-list">
-                <li class="flexer between center-cross" v-for="(task, index) in tasks">
-                    <span>{{ task.taskDescription }}</span>
+                <li class="flexer between center-cross" v-for="(task, index) in filterTasks(filter)"
+                    :class="{ important: task.isTaskImportant}"><span>{{ task.taskDescription }}</span>
                     <div class="actions flexer">
+                        <div @mouseover="togglePopUp(index)" @mouseleave="togglePopUp(-1)">
+                            <i class="fas fa-exclamation-circle" @click="toggleImportance(task)">
+                            </i>
+                            <div class="alert" v-show="indexVisible === index">
+                                <span v-if="!task.isTaskImportant">
+                                    Segna task come importante
+                                </span>
+                                <span v-else>
+                                    Non è poi così importante
+                                </span>
+                            </div>
+                        </div>
 
                         <i class="fas fa-times" @click="removeTask(index)"></i>
                     </div>

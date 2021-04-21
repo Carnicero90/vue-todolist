@@ -2,24 +2,24 @@ var app = new Vue({
     el: '#root',
     data: {
         tasks: [{
-            str: 'spostare pezzi in più in cartella bonus',
-            important: true
+            taskDescription: 'Spostare pezzi in più in cartella bonus',
+            isTaskImportant: true
         },
         {
-            str: 'riordinare il codice',
-            important: true
+            taskDescription: 'Riordinare il codice',
+            isTaskImportant: true
         },
         {
-            str: 'Fare il bucato',
-            important: false
+            taskDescription: 'Fare il bucato',
+            isTaskImportant: false
         },
         {
-            str: 'Lavarsi i piedi',
-            important: false,
+            taskDescription: 'Lavarsi i piedi',
+            isTaskImportant: false,
         },
         {
-            str: 'Sfamare il coniglio',
-            important: true
+            taskDescription: 'Sfamare il coniglio',
+            isTaskImportant: true
         }],
         message: '',
         filter: '',
@@ -32,14 +32,14 @@ var app = new Vue({
         addTask(message) {
             if (message) {
                 this.tasks.push({
-                    str: message,
-                    important: false
+                    taskDescription: message[0].toUpperCase() + message.slice(1),
+                    isTaskImportant: false
                 });
                 this.message = ''
             }
         },
         filterTasks(filter) {
-            return this.tasks.filter((item) => item.str.toLowerCase().includes(filter.toLowerCase()))
+            return this.tasks.filter((item) => item.taskDescription.toLowerCase().includes(filter.toLowerCase()))
         }
     },
 

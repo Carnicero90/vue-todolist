@@ -39,14 +39,14 @@
             <!-- ul.tasks-lists -->
             <ul class="tasks-list">
                 <li class="flexer between center-cross" v-for="(task, index) in filterTasks(filter)"
-                    v-bind:class="{ important: task.important}"><span>{{ task.str }}</span>
+                    v-bind:class="{ important: task.isTaskImportant}"><span>{{ task.taskDescription }}</span>
                     <div class="actions flexer" @mouseleave="indexVisible = -1">
                         <div @mouseover="indexVisible = index">
                             <i class="fas fa-exclamation-circle" 
-                            @click="task.important = !task.important"> 
+                            @click="task.isTaskImportant = !task.isTaskImportant"> 
                         </i>
                             <div class="alert" v-show="indexVisible === index">
-                                <span v-if="!task.important">
+                                <span v-if="!task.isTaskImportant">
                                     Segna task come importante
                                 </span>
                                 <span v-else>

@@ -30,7 +30,8 @@
 
             <!-- div.filter -->
             <div class="filter text-center">
-                <input v-model="filter" type="text" placeholder="Filtra task" aria-label="Filtra task">
+                <input v-model="filter" type="text" placeholder="Filtra task" aria-label="Filtra task"
+                @keyup.esc="filter=''">
                 <i class="fas fa-search"></i>
             </div>
             <!-- END div.filter -->

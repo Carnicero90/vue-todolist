@@ -40,9 +40,11 @@
             <ul class="tasks-list">
                 <li class="flexer between center-cross" v-for="(task, index) in filterTasks(filter)"
                     v-bind:class="{ important: task.important}"><span>{{ task.str }}</span>
-                    <div class="actions" @mouseleave="indexVisible = -1">
-                        <i class="fas fa-exclamation-circle" @mouseover="indexVisible = index"
-                            @click="task.important = !task.important">
+                    <div class="actions flexer" @mouseleave="indexVisible = -1">
+                        <div @mouseover="indexVisible = index">
+                            <i class="fas fa-exclamation-circle" 
+                            @click="task.important = !task.important"> 
+                        </i>
                             <div class="alert" v-show="indexVisible === index">
                                 <span v-if="!task.important">
                                     Segna task come importante
@@ -51,7 +53,8 @@
                                     Non è poi così importante
                                 </span>
                             </div>
-                        </i>
+                        </div>
+                        
                         <i class="fas fa-times" @click="removeTask(index)"></i>
                     </div>
                 </li>

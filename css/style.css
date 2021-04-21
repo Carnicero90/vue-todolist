@@ -1,13 +1,16 @@
 /* COMMON
    ======================= */
+
 .important {
    background-color: orangered;
    color: white;
    font-weight: 900;
 }
+
 .important:hover {
    background-color: red;
 }
+
 /* ======================= */
 
 /* HEADER
@@ -15,12 +18,14 @@
 
 /*    * stuff
       -------------------- */
+
 .logo {
    width: 300px;
    margin: auto;
    margin-top: 10vh;
    padding-bottom: 5vh;
 }
+
 /*    -------------------- */
 
 /* ======================= */
@@ -30,11 +35,27 @@
 
 /*    * add-to-list
       -------------------- */
+
 input, button {
    padding: 5px;
    border-radius: 10px;
    border: 1px solid black;
 }
+
+/*    -------------------- */
+
+/*    * filter
+      -------------------- */
+
+.filter {
+   padding-top: 2vh;
+   padding-bottom: 2vh;
+}
+
+.filter i {
+   color: rgb(11, 11, 68)
+}
+
 /*    -------------------- */
 
 /*    * tasks-list
@@ -57,6 +78,7 @@ li {
 li:hover {
    background-color: white;
 }
+
 .actions {
    position: relative;
 }
@@ -67,16 +89,6 @@ li:hover {
    background: white;
    color: black;
 }
-
-/*    -------------------- */
-
-/* ======================= */
-
-/* FOOTER
-   ======================= */
-
-/*    * stuff
-      -------------------- */
 
 /*    -------------------- */
 

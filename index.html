@@ -20,51 +20,44 @@
 
         <!-- MAIN -->
         <main class="flexer col center">
+            <!-- div.add-to-list -->
             <div class="add-to-list text-center">
-                <input v-model="message" 
-                       type="text" 
-                       placeholder="Nuovo Todo"
-                       aria-label="Aggiungi"
-                       @keyup.enter="addTask(message)"
-                >
+                <input v-model="message" type="text" placeholder="Nuovo Todo" aria-label="Aggiungi"
+                    @keyup.enter="addTask(message)">
                 <button @click="addTask(message)">Aggiungi</button>
             </div>
+            <!-- END div.add-to-list -->
+
+            <!-- div.filter -->
             <div class="filter text-center">
-                <label for=""></label>
-                <input v-model="filter" type="text">
+                <input v-model="filter" type="text" placeholder="Filtra task" aria-label="Filtra task">
                 <i class="fas fa-search"></i>
             </div>
+            <!-- END div.filter -->
 
+            <!-- ul.tasks-lists -->
             <ul class="tasks-list">
-                <li class="flexer between center-cross"
-                v-for="(task, index) in filterTasks(filter)"
-                v-bind:class="{ important: task.important}"
-                ><span>{{ task.str }}</span> 
-                <div class="actions"
-                @mouseleave="indexVisible = -1">
-                    <i class="fas fa-exclamation-circle"
-                    @mouseover="indexVisible = index"
-                    @click="tasks[index].important = !tasks[index].important"
-                    ><div class="alert"
-                    v-show="indexVisible === index">
-                    <span v-if="!task.important">
-                        Segna task come importante
-                    </span>
-                    <span v-else>Non è poi così importante</span>
-                </div></i>
-                    <i class="fas fa-times"
-                    @click="removeTask(index)"
-                    ></i>
-                </div>
-               </li>
-
+                <li class="flexer between center-cross" v-for="(task, index) in filterTasks(filter)"
+                    v-bind:class="{ important: task.important}"><span>{{ task.str }}</span>
+                    <div class="actions" @mouseleave="indexVisible = -1">
+                        <i class="fas fa-exclamation-circle" @mouseover="indexVisible = index"
+                            @click="tasks[index].important = !tasks[index].important">
+                            <div class="alert" v-show="indexVisible === index">
+                                <span v-if="!task.important">
+                                    Segna task come importante
+                                </span>
+                                <span v-else>Non è poi così importante</span>
+                            </div>
+                        </i>
+                        <i class="fas fa-times" @click="removeTask(index)"></i>
+                    </div>
+                </li>
             </ul>
-   
+            <!-- ul.tasks-lists -->
+
         </main>
         <!-- END MAIN -->
-
-        <!-- FOOTER -->
-        <!-- END FOOTER -->
+        
     </div>
     <!-- END VUE CONTAINER -->
 

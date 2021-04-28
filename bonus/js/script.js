@@ -27,9 +27,11 @@ var app = new Vue({
     },
     methods: {
         removeTask(index) {
+            // return tasks - item with index == index
             return this.tasks.splice(index, 1)
         },
         addTask(message) {
+            // push a new item in tasks
             if (message) {
                 this.tasks.push({
                     taskDescription: this.capitalizeWord(message),
@@ -39,7 +41,7 @@ var app = new Vue({
             }
         },
         togglePopUp(index) {
-            this.indexVisible = index;
+            this.indexVisible = index
         },
 
         toggleImportance(task) {

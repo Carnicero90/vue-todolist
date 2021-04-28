@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font-awesome version 5.15.2 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <!-- local css stylesheets -->
     <link rel="stylesheet" href="css/my_frame.css">
     <link rel="stylesheet" href="css/style.css">
     <title>ToBool</title>
@@ -15,7 +17,9 @@
     <!-- VUE CONTAINER -->
     <div id="root">
         <!-- HEADER -->
-        <header><img src="https://www.boolean.careers/images/misc/logo.png" alt="logo Boolean" class="logo"></header>
+        <header>
+            <img src="https://www.boolean.careers/images/misc/logo.png" alt="logo Boolean" class="logo">
+        </header>
         <!-- END HEADER -->
 
         <!-- MAIN -->
@@ -33,20 +37,20 @@
                 <li class="flexer between center-cross" v-for="(task, index) in tasks">
                     <span>{{ task.taskDescription }}</span>
                     <div class="actions flexer">
-
                         <i class="fas fa-times" @click="removeTask(index)"></i>
                     </div>
                 </li>
             </ul>
             <!-- ul.tasks-lists -->
-
         </main>
         <!-- END MAIN -->
 
     </div>
     <!-- END VUE CONTAINER -->
 
+    <!-- vue.js last 2.* version -->
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- local js script -->
     <script src="js/script.js"></script>
 </body>
 
